@@ -1,0 +1,38 @@
+{
+  "name": "sitecues-certificate-authority",
+  "version": "0.0.0",
+  "description": "Internal SSL certificate authority for sitecues.",
+  "homepage": "https://bitbucket.org/ai_squared/sitecues-certificate-authority",
+  "main": "index.js",
+  "author": {
+    "name": "Seth Holladay",
+    "url": "http://seth-holladay.com",
+    "email": "me@seth-holladay.com"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:ai_squared/sitecues-certificate-authority.git"
+  },
+  "bugs": {
+    "url": "https://bitbucket.org/ai_squared/sitecues-certificate-authority/issues",
+    "email": "me@seth-holladay.com"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "https",
+    "HTTPS",
+    "ssl",
+    "SSL",
+    "internal",
+    "ca",
+    "CA",
+    "certificate",
+    "authority"
+  ]
+}
