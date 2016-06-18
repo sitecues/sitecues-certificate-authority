@@ -13,8 +13,8 @@ touch index.txt;
 echo 1000 > serial;
 ```
 
-Create a config file for the root CA. For example:
-https://jamielinux.com/docs/openssl-certificate-authority/_downloads/root-config.txt
+Make sure you have a config file for the root CA.
+For example [config/openssl.conf](https://bitbucket.org/ai_squared/sitecues-certificate-authority/src/master/config/openssl.conf) or [root-config.txt](https://jamielinux.com/docs/openssl-certificate-authority/_downloads/root-config.txt).
 
 ```sh
 nano openssl.conf;
@@ -24,6 +24,11 @@ Create a private key for the root CA.
 
 ```sh
 openssl genrsa -aes256 -out private/ca.key.pem 4096;
+```
+
+Secure the private key for the root CA.
+
+```sh
 chmod 400 private/ca.key.pem;
 ```
 
@@ -31,9 +36,14 @@ Create a self-signed public certificate for the root CA.
 
 ```sh
 openssl req -config openssl.conf \
-      -new -x509 -days 7300 -sha512 -extensions v3_ca \
+      -new -x509 -days 3660 -sha512 -extensions v3_ca \
       -key private/ca.key.pem \
       -out cert/ca.cert.pem;
+```
+
+Secure the public certificate for the root CA.
+
+```sh
 chmod 444 cert/ca.cert.pem;
 ```
 
