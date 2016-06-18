@@ -14,7 +14,7 @@ echo 1000 > serial;
 ```
 
 Make sure you have a config file for the root CA.
-For example [config/openssl.conf](https://bitbucket.org/ai_squared/sitecues-certificate-authority/src/master/config/openssl.conf) or [root-config.txt](https://jamielinux.com/docs/openssl-certificate-authority/_downloads/root-config.txt).
+For example [ssl/openssl.conf](https://bitbucket.org/ai_squared/sitecues-certificate-authority/src/master/config/openssl.conf) or [root-config.txt](https://jamielinux.com/docs/openssl-certificate-authority/_downloads/root-config.txt).
 
 ```sh
 nano openssl.conf;
@@ -200,4 +200,12 @@ Verify the integrity of the server's public certificate.
 ```sh
 openssl verify -CAfile ../intermediate-ca/cert/ca-chain.cert \
       cert/localhost.cert;
+```
+
+Create the server's public certificate chain file.
+
+```sh
+cat cert/localhost.cert \
+      ../intermediate-ca/cert/intermediate-ca.cert > cert/ca-chain.cert;
+chmod 444 cert/ca-chain.cert;
 ```
