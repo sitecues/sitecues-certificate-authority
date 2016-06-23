@@ -13,10 +13,6 @@ trim_trailing_whitespace = true
 end_of_line = lf
 insert_final_newline = true
 
-# Markdown reserves trailing spaces for special use.
-[*.md]
-trim_trailing_whitespace = false
-
 # Respect npm's default spacing to make diffs from scripts less noisy.
-# [{package.json}]
+# [package.json]
 # indent_size = 2

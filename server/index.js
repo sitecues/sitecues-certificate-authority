@@ -1,35 +1,88 @@
 'use strict';
 
-process.on('unhandledRejection', (err) => {
-    throw err;
-});
+const path = require('path');
+const fs     = require('fs');
+const {Server} = require('hapi');
 
-const hapi = require('hapi');
-const server = new hapi.Server();
-const fs = require('fs');
+class Site extends Server {
 
-server.connection({
-    port : 443,
-    tls  : {
-        key  : fs.readFileSync('./private/localhost.key'),
-        cert : fs.readFileSync('./cert/ca-chain.cert')
+    constructor(option) {
+
+        option = Object.assign({ port : 443 }, option);
+
+        super({
+            connections : {
+                routes : {
+                    files : {
+                        relativeTo : path.join(__dirname, 'store')
+                    }
+                }
+            }
+        });
+
+        super.connection({
+            port : option.port,
+            tls  : {
+                key  : fs.readFileSync('./key/localhost.key'),
+                cert : fs.readFileSync('./cert/ca-chain.cert')
+            }
+        });
     }
-});
 
-server.route({
-    method  : 'GET',
-    path    : '/status',
-    handler : function (request, reply) {
-        reply('ok');
+    start() {
+        return super.register([
+                // Static file serving.
+                require('inert'),
+                // View templating.
+                require('vision')
+            ])
+            .then(() => {
+
+                // Use the views plugin we registered with the server
+                // to configure how it will render templates.
+                this.views({
+                    engines : {
+                        html : require('handlebars')
+                    },
+                    relativeTo   : path.join(__dirname, 'view'),
+                    path         : './',
+                    // Name of the default layout file. Can be overriden in routes.
+                    layout       : 'default-layout',
+                    // Directory name where layouts are stored.
+                    layoutPath   : 'layout',
+                    // Directory name where partials are stored.
+                    partialsPath : 'partial',
+                    // Directory name where helpers are stored.
+                    helpersPath  : 'helper'
+                });
+
+                // TODO: Import all from directory, like require-dir.
+                super.route([
+                    require('./route/status'),
+                    require('./route/cert')
+                ]);
+
+                // TODO: Simply return the promise once hapijs/hapi#3217 is resolved.
+                // https://github.com/hapijs/hapi/issues/3217
+
+                // return super.start();
+
+                return new Promise((resolve, reject) => {
+                    super.start((err) => {
+
+                        if (err) {
+                            reject(err);
+                            return;
+                        }
+
+                        resolve();
+                    });
+                });
+            });
     }
-});
+}
 
-server.route({
-    method  : 'GET',
-    path    : '/cert',
-    handler : function (request, reply) {
-        reply('coming soon');
-    }
-});
+module.exports = {
+    Site
+};
 
-server.start();

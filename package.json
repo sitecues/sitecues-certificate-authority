@@ -4,12 +4,14 @@
   "description": "Internal SSL certificate authority for sitecues.",
   "homepage": "https://bitbucket.org/ai_squared/sitecues-certificate-authority",
   "main": "index.js",
+  "private": true,
   "author": {
     "name": "Seth Holladay",
     "url": "http://seth-holladay.com",
     "email": "me@seth-holladay.com"
   },
   "scripts": {
+    "start": "node ./bin/sitecues-ca-verifier.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +26,19 @@
   "files": [
     "index.js"
   ],
+  "dependencies": {
+    "chalk": "1.1.3",
+    "error-subclass": "1.0.2",
+    "handlebars": "4.0.5",
+    "hapi": "13.4.1",
+    "inert": "4.0.0",
+    "json-align": "0.1.0",
+    "meow": "3.7.0",
+    "read-pkg-up": "1.0.1",
+    "root-check": "1.0.0",
+    "throw-rejects": "0.1.0",
+    "vision": "4.1.0"
+  },
   "keywords": [
     "https",
     "HTTPS",
@@ -33,6 +48,10 @@
     "ca",
     "CA",
     "certificate",
-    "authority"
+    "authority",
+    "verify",
+    "help",
+    "test",
+    "tool"
   ]
 }
