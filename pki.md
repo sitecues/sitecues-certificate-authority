@@ -206,6 +206,6 @@ Create the server's public certificate chain file.
 
 ```sh
 cat cert/localhost.cert \
-      ../intermediate-ca/cert/intermediate-ca.cert > cert/ca-chain.cert;
-chmod 444 cert/ca-chain.cert;
+      ../intermediate-ca/cert/intermediate-ca.cert > cert/localhost-chain.cert;
+chmod 444 cert/localhost-chain.cert;
 ```
