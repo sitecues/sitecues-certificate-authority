@@ -8,7 +8,14 @@ class Site extends Server {
 
     constructor(option) {
 
-        option = Object.assign({ port : 443 }, option);
+        option = Object.assign(
+            {
+                port : 443,
+                key  : './key/localhost.key',
+                cert : './cert/localhost-chain.cert'
+            },
+            option
+        );
 
         super({
             connections : {
@@ -23,8 +30,8 @@ class Site extends Server {
         super.connection({
             port : option.port,
             tls  : {
-                key  : fs.readFileSync('./key/localhost.key'),
-                cert : fs.readFileSync('./cert/ca-chain.cert')
+                key  : fs.readFileSync(option.key),
+                cert : fs.readFileSync(option.cert)
             }
         });
     }

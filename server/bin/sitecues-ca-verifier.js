@@ -14,15 +14,15 @@ const chalk = require('chalk');
 
 const cli = require('meow')(`
     Usage
-      $ sitecues-ca-verifier
+      $ sitecues-ca-server
 
     Options
       --port  Listen on a specific port for requests
 
     Examples
-      $ sitecues-ca-verifier
+      $ sitecues-ca-server
       ${chalk.bold.cyan('Verify CA')} ${chalk.bold.grey('at')} ${chalk.bold.yellow('https://localhost/verify')}
-      $ sitecues-ca-verifier --port=7000
+      $ sitecues-ca-server --port=7000
       ${chalk.bold.cyan('Verify CA')} ${chalk.bold.grey('at')} ${chalk.bold.yellow('https://localhost:7000/verify')}
 `);
 
@@ -59,6 +59,6 @@ server.start().then(() => {
     console.log(
         chalk.bold.cyan('Verify CA'),
         chalk.bold.grey('at'),
-        chalk.bold.yellow(server.info.uri)
+        chalk.bold.yellow(server.info.uri + '/verify')
     );
 });
