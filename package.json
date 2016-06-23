@@ -11,7 +11,7 @@
     "email": "me@seth-holladay.com"
   },
   "scripts": {
-    "start": "node ./bin/sitecues-ca-verifier.js",
+    "start": "node ./bin/sitecues-ca-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +24,8 @@
   },
   "license": "SEE LICENSE IN LICENSE",
   "files": [
+    "bin",
+    "server",
     "index.js"
   ],
   "dependencies": {
