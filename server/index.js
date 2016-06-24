@@ -21,7 +21,7 @@ class Site extends Server {
             connections : {
                 routes : {
                     files : {
-                        relativeTo : path.join(__dirname, 'store')
+                        relativeTo : path.join(__dirname, '..')
                     }
                 }
             }
@@ -30,8 +30,8 @@ class Site extends Server {
         super.connection({
             port : option.port,
             tls  : {
-                key  : fs.readFileSync(option.key),
-                cert : fs.readFileSync(option.cert)
+                key  : fs.readFileSync(path.join(__dirname, option.key)),
+                cert : fs.readFileSync(path.join(__dirname, option.cert))
             }
         });
     }
@@ -92,4 +92,3 @@ class Site extends Server {
 module.exports = {
     Site
 };
-

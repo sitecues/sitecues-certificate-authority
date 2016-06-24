@@ -26,7 +26,7 @@ const cli = require('meow')(`
       ${chalk.bold.cyan('Verify CA')} ${chalk.bold.grey('at')} ${chalk.bold.yellow('https://localhost:7000/verify')}
 `);
 
-const {Site} = require('../');
+const {Site} = require('../server');
 const server = new Site(cli.flags);
 
 let cancelled = false;
@@ -46,7 +46,7 @@ process.on('SIGINT', () => {
 });
 
 const rootCheck = require('root-check');
-const {SecurityError} = require('../lib/error');
+const {SecurityError} = require('../server/error');
 
 server.start().then(() => {
     // Attempt to set UID to a normal user now that we definitely

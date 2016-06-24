@@ -4,6 +4,6 @@ module.exports = {
     method  : 'GET',
     path    : '/cert',
     handler : {
-        file : '../ssl/root-ca/root-ca.cert'
+        file : './root-ca/cert/root-ca.cert'
     }
 };
