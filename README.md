@@ -1,6 +1,6 @@
 # sitecues-certificate-authority
 
-> Internal SSL certificate authority for sitecues.
+> Create and revoke SSL certificates for Sitecues.
 
 ## Why?
 

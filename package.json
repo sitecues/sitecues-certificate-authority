@@ -1,7 +1,7 @@
 {
   "name": "sitecues-certificate-authority",
   "version": "0.0.0",
-  "description": "Internal SSL certificate authority for sitecues.",
+  "description": "Create and revoke SSL certificates for Sitecues.",
   "homepage": "https://bitbucket.org/ai_squared/sitecues-certificate-authority",
   "main": "index.js",
   "private": true,
