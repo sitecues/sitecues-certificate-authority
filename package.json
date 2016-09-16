@@ -29,17 +29,17 @@
     "index.js"
   ],
   "dependencies": {
-    "chalk": "1.1.3",
-    "error-subclass": "1.0.2",
-    "handlebars": "4.0.5",
-    "hapi": "13.4.1",
-    "inert": "4.0.0",
-    "json-align": "0.1.0",
-    "meow": "3.7.0",
-    "read-pkg-up": "1.0.1",
-    "root-check": "1.0.0",
-    "throw-rejects": "0.1.0",
-    "vision": "4.1.0"
+    "chalk": "^1.1.3",
+    "error-subclass": "^1.0.2",
+    "handlebars": "^4.0.5",
+    "hapi": "^15.0.3",
+    "inert": "^4.0.0",
+    "json-align": "^0.1.0",
+    "meow": "^3.7.0",
+    "read-pkg-up": "^1.0.1",
+    "root-check": "^1.0.0",
+    "throw-rejects": "^0.1.0",
+    "vision": "^4.1.0"
   },
   "keywords": [
     "https",
