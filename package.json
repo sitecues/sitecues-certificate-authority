@@ -2,7 +2,7 @@
   "name": "sitecues-certificate-authority",
   "version": "0.0.0",
   "description": "Create and revoke SSL certificates for Sitecues.",
-  "homepage": "https://bitbucket.org/ai_squared/sitecues-certificate-authority",
+  "homepage": "https://github.com/sitecues/sitecues-certificate-authority",
   "main": "index.js",
   "private": true,
   "author": {
@@ -16,10 +16,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:ai_squared/sitecues-certificate-authority.git"
+    "url": "git@github.com:sitecues/sitecues-certificate-authority.git"
   },
   "bugs": {
-    "url": "https://bitbucket.org/ai_squared/sitecues-certificate-authority/issues",
+    "url": "https://github.com/sitecues/sitecues-certificate-authority/issues",
     "email": "me@seth-holladay.com"
   },
   "license": "SEE LICENSE IN LICENSE",

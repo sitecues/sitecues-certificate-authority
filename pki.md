@@ -14,7 +14,7 @@ echo 1000 > serial;
 ```
 
 Make sure you have a config file for the root CA.
-For example [root-ca/openssl.conf](https://bitbucket.org/ai_squared/sitecues-certificate-authority/src/master/root-ca/openssl.conf) or [root-config.txt](https://jamielinux.com/docs/openssl-certificate-authority/_downloads/root-config.txt).
+For example [root-ca/openssl.conf](https://github.com/sitecues/sitecues-certificate-authority/blob/master/root-ca/openssl.conf) or [root-config.txt](https://jamielinux.com/docs/openssl-certificate-authority/_downloads/root-config.txt).
 
 ```sh
 nano openssl.conf;
@@ -65,7 +65,7 @@ echo 1000 > serial;
 echo 1000 > crlnumber;
 ```
 
-Create a config file for the intermediate CA. For example [server-ca/openssl.conf](https://bitbucket.org/ai_squared/sitecues-certificate-authority/src/master/server-ca/openssl.conf) or [intermediate-config.txt](https://jamielinux.com/docs/openssl-certificate-authority/_downloads/intermediate-config.txt).
+Create a config file for the intermediate CA. For example [server-ca/openssl.conf](https://github.com/sitecues/sitecues-certificate-authority/blob/master/server-ca/openssl.conf) or [intermediate-config.txt](https://jamielinux.com/docs/openssl-certificate-authority/_downloads/intermediate-config.txt).
 
 ```sh
 nano openssl.conf;
